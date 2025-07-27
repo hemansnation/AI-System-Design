@@ -5,38 +5,38 @@
 ### [Module 1] - Foundations of Scalable Systems
   - **Compute Infrastructure**
 
-    - [Virtual Machines (VMs)](#virtual-machines-vms)
+    - [Virtual machines (VMs)](#virtual-machines-vms)
     - [Containers (Docker)](#containers-docker)
-    - [Container Orchestration (Kubernetes)](#container-orchestration-kubernetes)
+    - [Container orchestration (Kubernetes)](#container-orchestration-kubernetes)
   - **Networking Fundamentals**
 
-    - [IP (Internet Protocol)](#ip-internet-protocol)
-    - [DNS (Domain Name System)](#dns-domain-name-system)
-    - [Load Balancing](#load-balancing)
+    - [IP (internet protocol)](#ip-internet-protocol)
+    - [DNS (domain name system)](#dns-domain-name-system)
+    - [Load balancing](#load-balancing)
   - **Application Programming Interfaces (APIs)**
 
-    - [REST (Representational State Transfer)](#rest-representational-state-transfer)
-    - [gRPC (gRPC Remote Procedure Call)](#grpc-grpc-remote-procedure-call)
+    - [REST (representational state transfer)](#rest-representational-state-transfer)
+    - [gRPC (gRPC remote procedure call)](#grpc-grpc-remote-procedure-call)
   - **Data Storage**
 
     - [Storage Tiers](#storage-tiers)
-        - Block Storage
-        - File Storage
-        - Object Storage 
+        - Block storage
+        - File storage
+        - Object storage 
     - [Databases](#databases)
-        - Relational Databases (SQL)
-        - Non-Relational Databases (NoSQL)
-        - Vector Databases
+        - Relational databases (SQL)
+        - Non-relational databases (NoSQL)
+        - Vector databases
     - [Caching](#caching)
-        - In-Memory Data Stores
-        - Cache Eviction Policies
+        - In-Memory data stores
+        - Cache eviction policies
   - **System Architecture**
 
-    - [Monolithic Architecture](#monolithic-architecture)
-    - [Microservices Architecture](#microservices-architecture)
-    - [Asynchronous Communication](#asynchronous-communication)
-        - Message Queues
-        - Streaming Platforms (Apache Kafka)
+    - [Monolithic architecture](#monolithic-architecture)
+    - [Microservices architecture](#microservices-architecture)
+    - [Asynchronous communication](#asynchronous-communication)
+        - Message queues
+        - Streaming platforms (Apache Kafka)
 
 ### [Module 2] - The Machine Learning Systems Lifecycle
   - Data Engineering for AI
