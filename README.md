@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- Module 1: Foundations of Scalable Systems
+### [Module 1] - Foundations of Scalable Systems
   - **Compute Infrastructure**
 
     - [Virtual Machines (VMs)](#virtual-machines-vms)
@@ -38,7 +38,7 @@
         - Message Queues
         - Streaming Platforms (Apache Kafka)
 
-- Module 2: The Machine Learning Systems Lifecycle
+### [Module 2] - The Machine Learning Systems Lifecycle
   - Data Engineering for AI
     - [Data Ingestion](#data-ingestion)
     - [Data Processing & Transformation](#data-processing--transformation)
@@ -61,7 +61,7 @@
     - [Feedback Loops](#feedback-loops)
     - [Explainability & Bias Detection](#explainability--bias-detection)
 
-- Module 3: Advanced AI System Architectures & Patterns
+### [Module 3] - Advanced AI System Architectures & Patterns
   - Big Data Architectural Patterns
     - [Lambda Architecture](#lambda-architecture)
     - [Kappa Architecture](#kappa-architecture)
@@ -85,7 +85,7 @@
     - [Active Learning and Retraining Feedback Loop](#active-learning-and-retraining-feedback-loop)
     - [Massive-scale Media Storage](#massive-scale-media-storage)
 
-- Module 4: Professional Practice & The Cutting Edge
+### [Module 4] - Professional Practice & The Cutting Edge
   - Economics of AI Systems
     - [Build vs. Buy Decision Framework](#build-vs-buy-decision-framework)
     - [Compute Cost Management](#compute-cost-management)
