@@ -109,7 +109,100 @@
 
 ### Compute Infrastructure
 #### Virtual Machines (VMs)
+
+Let's begin with a simple picture. Imagine you have a very powerful, expensive computer server in your office. It has a lot of processing power, a huge amount of memory, and tons of storage.
+
+Now, one of your teams needs to run a web server. They set it up, and it only uses about 10% of the computer’s power. Another team needs to run a database, and they use another 15%. A huge portion of that powerful computer is just sitting there doing nothing. This is wasteful and expensive.
+
+What if we could safely split that one big computer into several smaller, independent computers? That is the core idea behind a Virtual Machine.
+
+A Virtual Machine, or VM, is a complete computer that is created inside another physical computer using software.
+
+**The Apartment Building Analogy**
+
+Think of a physical server as a large apartment building. It has foundational resources like plumbing, electricity, and a concrete structure.
+
+A Virtual Machine is like an individual apartment inside that building. Each apartment is a self-contained home. It has its own kitchen, its own living room, and its own front door with a lock. Even though all apartments share the building's main water line and electrical grid, what you do in your apartment does not affect your neighbor. A leak in your sink will not flood their kitchen.
+
+The physical server is the building. The VMs are the apartments.
+
+<img width="1198" height="957" alt="image" src="https://github.com/user-attachments/assets/e59c8a77-063e-40b1-91d3-2ba862c50b56" />
+
+
+**How Does a Computer Pretend to be Many?**
+
+It is done with a special piece of software called a hypervisor.
+
+The hypervisor is the architect’s blueprint.
+
+It is the first thing installed on the physical computer, and its job is to do two things:
+
+1. The hypervisor carves up the physical computer’s resources. It says, "Okay, VM number 1 gets two CPU cores and 16 gigabytes of memory. VM number 2 gets four CPU cores and 32 gigabytes of memory." It manages access to these shared resources, making sure every VM gets its fair share.
+2. The hypervisor builds "virtual walls" between the VMs. The code running in one VM has no idea that other VMs even exist. They cannot see each other’s files or interfere with each other's memory. If one VM crashes, the others keep running, just like one apartment having a power outage does not black out the entire building.
+
+
+Each VM gets to run its own complete operating system. You could have one VM run Linux while another VM next to it runs Windows, all on the same physical machine.
+
+**Why You Will Use Virtual Machines as an AI Engineer**
+
+This concept is fundamental to almost everything you will do when building AI systems.
+
+- You need to test a new machine learning library, but you are worried it might conflict with the other software on your machine. You can create a new, clean VM in minutes. Install whatever you want inside it. If it works, great. If it breaks everything, you just delete the VM. Your main machine is untouched. It is a clean, disposable workshop.
+- You trained your model on a computer with a very specific setup. It used Ubuntu 20.04, a certain version of Python, and specific GPU drivers. To make sure it runs the same way for your colleague or in production, you can save the entire VM as a file. Anyone can then load that file and get an identical, perfectly configured computer. This solves the classic "but it works on my machine" problem.
+- When you go to a cloud provider like Amazon Web Services (AWS), Google Cloud, or Microsoft Azure and ask for a "server", you are almost always getting a Virtual Machine. The cloud provider manages giant physical servers in their data centers and uses a hypervisor to rent out virtual "apartments" to you.
+
+As an AI engineer, you will say, "I need a VM with 8 CPU cores and an NVIDIA A100 GPU" to train your model. The cloud gives you exactly that, as a self-contained unit, without you ever having to see the physical building.
+
+So, in short, a Virtual Machine lets us use one physical computer as many separate, isolated computers. This gives us efficiency, safety, and flexibility, which are the building blocks for creating any complex AI system.
+
 #### Containers (Docker)
+
+We just learned how Virtual machines let us split one big computer into several smaller, independent ones. This is a huge improvement over wasting a physical server's resources. However, VMs have a noticeable inefficiency.
+
+Each VM runs a complete, separate operating system. This means each one takes up a good chunk of disk space and memory, and can be slow to start up, sometimes taking minutes.
+
+This led engineers to ask a follow-up question: 
+
+`"What if we could get the isolation of a VM but let all our applications share the same underlying operating system?"`
+
+This is the core idea behind a container.
+
+A container is a lightweight, standalone package of software that includes everything needed to run it: the code, its runtime (like Python), system tools, and libraries.
+
+**How It Works? Sharing the Operating System**
+
+Instead of virtualizing the physical hardware like a VM does, a container virtualizes the operating system.
+
+Imagine one host computer running a single Linux operating system. On top of this OS, we can run multiple containers. Each container gets its own isolated space for its files, its processes, and its network connections. However, all of these containers are directly using the kernel (the core) of the one host Linux operating system.
+
+They are essentially just carefully separated processes from the host OS's point of view. This direct sharing of the OS kernel makes them incredibly efficient.
+
+A quick analogy might help here. If a VM is like a separate apartment with its own plumbing and electrical box, a container is like a room within a single house. All rooms share the house's main plumbing and electricity, making them much faster and simpler to build, but they still have their own locked doors for privacy.
+
+Docker is the tool that made this concept easy and popular. 
+
+It provides a simple way to build a "recipe" for your container (a Dockerfile) and package it into a portable blueprint (an Image) that you can run anywhere.
+
+**Why You Will Use Containers as an AI Engineer**
+
+For modern AI development, containers have become the standard.
+
+Here’s why this matters directly to your work:
+
+- Your machine learning model is not just a single model file. It is the model file plus the specific version of PyTorch or TensorFlow you used, the exact Python version, a particular system library, and other dependencies. A container bundles all of this together into a single, predictable package. When you send this container to someone else, you are sending a guaranteed working environment.
+- Imagine your AI application suddenly gets a huge burst of traffic. You need to launch 100 new copies of your model's prediction service right now. Starting 100 VMs could take many minutes. Starting 100 containers often takes just a few seconds. This speed is critical for building systems that can react quickly to changes in demand.
+- With containers, the environment you build and test on your laptop is the exact same environment that runs in the cloud for production. This eliminates a massive category of bugs that come from small differences between machines. It is the ultimate solution to the "but it works on my machine" problem.
+
+**To summarize the key difference:**
+
+- A Virtual machine is a full OS on top of virtualized hardware. It is heavy but provides very strong isolation.
+- A Container is just your application and its dependencies running on a shared OS. It is light and fast.
+
+
+For most modern AI applications, containers are the preferred choice because of their incredible speed and efficiency.
+
+
+
 #### Container Orchestration (Kubernetes)
 
 ### Networking Fundamentals
